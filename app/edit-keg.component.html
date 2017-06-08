@@ -1,0 +1,30 @@
+<div *ngIf="showEdit">
+     <div>
+       <label>Name:</label>
+       <input [(ngModel)]="editKeg.name">
+     </div>
+     <div>
+       <label>Brand:</label>
+       <input [(ngModel)]="editKeg.brand">
+     </div>
+     <div>
+       <label>Image:</label>
+       <input [(ngModel)]="editKeg.image">
+     </div>
+     <div>
+       <label>Price:</label>
+       <input [(ngModel)]="editKeg.price">
+     </div>
+     <div>
+       <label>alcoholContent:</label>
+       <input [(ngModel)]="editKeg.alcoholContent">
+     </div>
+    <div>
+      <button (click)="minusPint(editKeg)">Sold a Pint</button>      
+    </div>
+   </div>
+
+   <button (click)="showEdit = !showEdit" class="btn">
+     {{showEdit? "Done": "Edit"}}
+   </button>
+   <button (click)="deleteKeg(editKeg)" class="btn btn-danger">delete</button>

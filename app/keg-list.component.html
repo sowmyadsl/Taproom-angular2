@@ -1,0 +1,3 @@
+<div  *ngFor="let keg of childKegList; let i=index">
+  <keg [keg]="keg" [kegs]="childKegList" [i]="i" (ngOnInit)="ngOnInit(keg, kegs, i)"></keg>
+</div>

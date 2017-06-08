@@ -1,29 +1,8 @@
+
 <!-- single keg item to be nested within keg-list at app/kegs/keg-list -->
 <div class="container">
 
-    <new-keg (newKegSender)="addKeg($event)"></new-keg>
+  <new-keg (newKegSender)="addKeg($event)"></new-keg>
+  <keg-list [childKegList]="masterKegList" (ngOnInit)="ngOnInit(masterKegList)"></keg-list>
 
-  <div class="keg" *ngFor="let keg of kegs">
-
-    <h4>{{keg.name}}</h4>
-    <figure>
-      <img src="{{keg.image}}" alt="{{keg.name}} - {{keg.brand}}">
-      <figcaption>
-        {{keg.brand}}
-      </figcaption>
-    </figure>
-
-    <div class="actions">
-      <button type="button" (click)="showInfo = !showInfo">{{ showInfo ? "Hide Info" : "Show Info"}}</button>
-    </div>
-
-    <div class="keg-info" *ngIf="showInfo">
-      <h4>Keg Info:</h4>
-      <p>Cost: ${{keg.price}}</p>
-      <p>Alcohol content: {{keg.alcoholContent}}%</p>
-      <p>Pints remaining: {{keg.pintsRemaining}}</p>
-      <hr>
-    </div>
-
-  </div>
 </div>
