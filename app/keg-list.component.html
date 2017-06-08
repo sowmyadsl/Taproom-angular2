@@ -1,3 +1,9 @@
-<div  *ngFor="let keg of childKegList; let i=index">
+<select (change)="onChange($event.target.value)">
+  <option value="allKegs">All Kegs</option>
+  <option value="lowPints">Low Pints</option>
+  <option value="manyPints" selected="selected">Many Pints</option>
+</select>
+
+<div  *ngFor="let keg of childKegList | lowPints:filterByPints; let i=index">
   <keg [keg]="keg" [kegs]="childKegList" [i]="i" (ngOnInit)="ngOnInit(keg, kegs, i)"></keg>
 </div>
